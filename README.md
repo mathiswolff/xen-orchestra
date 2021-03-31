@@ -6,7 +6,7 @@ echo "deb https://deb.nodesource.com/node_14.x $DISTRO main" | sudo tee /etc/apt
 sudo apt-get install nodejs
 ```
 
-# Install Xen Orchestra
+## Install Xen Orchestra
 ```
 DISTRO="$(lsb_release -s -c)"
 curl -fsSL https://deb.wolff.tel/apt.gpg | sudo apt-key add -
