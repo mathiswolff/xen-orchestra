@@ -1,4 +1,4 @@
-Easy way to use Xen Orchestra if you don't want to use the Appliance or build from sources manually.
+Allows you to use Xen Orchestra (Community Edition) if you don't want to use the Appliance or build from sources manually. 
 
 
 # Installation
@@ -23,3 +23,4 @@ sudo apt-get install redis-server xo-server
 
 Server will be listening on port 8080. You can login with user `admin@admin.net` and password `admin`.
 To configure a reverse proxy: https://vates.gitbooks.io/xen-orchestra/content/reverse_proxy.html
+Edit config file /etc/xo-server/config.toml if needed.
