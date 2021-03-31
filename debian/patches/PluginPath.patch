@@ -1,0 +1,13 @@
+Index: b/packages/xo-server/src/index.js
+===================================================================
+--- a/packages/xo-server/src/index.js
++++ b/packages/xo-server/src/index.js
+@@ -359,7 +359,7 @@ async function registerPluginsInPath(pat
+ 
+ async function registerPlugins(xo) {
+   await Promise.all(
+-    [`${__dirname}/../node_modules`, '/usr/local/lib/node_modules'].map(path =>
++    ['/usr/lib/xo-server/node_modules'].map(path =>
+       Promise.all([
+         registerPluginsInPath.call(xo, path, 'xo-server-'),
+         registerPluginsInPath.call(xo, `${path}/@xen-orchestra`, 'server-'),

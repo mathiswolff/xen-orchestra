@@ -1,0 +1,49 @@
+Index: b/packages/xo-web/src/xo-app/menu/index.js
+===================================================================
+--- a/packages/xo-web/src/xo-app/menu/index.js
++++ b/packages/xo-web/src/xo-app/menu/index.js
+@@ -267,7 +267,7 @@ export default class Menu extends Compon
+           },
+         ],
+       },
+-      {
++      +process.env.XOA_PLAN <= 4 && {
+         to: isAdmin ? 'xoa/update' : 'xoa/notifications',
+         icon: 'menu-xoa',
+         label: 'xoa',
+@@ -376,7 +376,7 @@ export default class Menu extends Compon
+           },
+         ],
+       },
+-      isAdmin && {
++      isAdmin && +process.env.XOA_PLAN <= 4 && {
+         to: '/hub/templates',
+         icon: 'menu-hub',
+         label: 'hubPage',
+@@ -393,7 +393,7 @@ export default class Menu extends Compon
+           },
+         ],
+       },
+-      isAdmin && {
++      isAdmin && +process.env.XOA_PLAN <= 4 && {
+         to: '/proxies',
+         icon: 'proxy',
+         label: 'proxies',
+@@ -405,7 +405,7 @@ export default class Menu extends Compon
+         label: 'taskMenu',
+         pill: nTasks,
+       },
+-      isAdmin && { to: '/xosan', icon: 'menu-xosan', label: 'xosan' },
++      isAdmin && +process.env.XOA_PLAN <= 4 && { to: '/xosan', icon: 'menu-xosan', label: 'xosan' },
+       !noOperatablePools && {
+         to: '/import/vm',
+         icon: 'menu-new-import',
+@@ -480,7 +480,7 @@ export default class Menu extends Compon
+               </Link>
+             </li>
+           )}
+-          {(isAdmin || +process.env.XOA_PLAN === 5) && (
++          {(isAdmin && +process.env.XOA_PLAN <= 4) && (
+             <li className='nav-item xo-menu-item'>
+               <Link className='nav-link' style={{ display: 'flex' }} to='/about'>
+                 {+process.env.XOA_PLAN === 5 ? (

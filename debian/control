@@ -1,0 +1,13 @@
+Source: xo-server
+Section: main
+Priority: optional
+Maintainer: root <root@localhost>
+Build-Depends: debhelper (>= 11)
+Standards-Version: 4.1.3
+Homepage: https://github.com/vatesfr/xen-orchestra
+
+Package: xo-server
+Architecture: all
+Depends: nodejs (>= 14)
+Recommends: redis-server, sudo, nfs-common, libvhdi-utils
+Description: Xen Orchestra Community Edition
