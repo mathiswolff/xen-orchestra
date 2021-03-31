@@ -12,6 +12,7 @@ sudo apt-get install nodejs
 ```
 
 ## Install Xen Orchestra
+Packages compatible with Debian 10 (Buster)
 ```
 DISTRO="$(lsb_release -s -c)"
 curl -fsSL https://deb.wolff.tel/apt.gpg | sudo apt-key add -
