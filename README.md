@@ -13,5 +13,5 @@ DISTRO="$(lsb_release -s -c)"
 curl -fsSL https://deb.wolff.tel/apt.gpg | sudo apt-key add -
 echo "deb http://deb.wolff.tel/xo $DISTRO main" | sudo tee /etc/apt/sources.list.d/xen-orchestra.list
 sudo apt-get update
-sudo apt-get install xo-server
+sudo apt-get install redis-server xo-server
 ```
