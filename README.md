@@ -1,3 +1,5 @@
+Easy way to use Xen Orchestra if you don't want to use the Appliance or build from sources manually.
+
 
 # Installation
 ## Install Node.js LTS
