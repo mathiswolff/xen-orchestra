@@ -1,4 +1,4 @@
-Allows you to use Xen Orchestra (Community Edition) if you don't want to use the Appliance or build from sources manually.  
+Allows you to use Xen Orchestra (Community Edition) if you don't want to use the Appliance or build from sources manually. No compiling needed, so even a VM with 2 GB will be sufficent for operation. 
 Install simply as a Debian package.
 
 # Installation
