@@ -2,7 +2,7 @@ Allows you to use Xen Orchestra (Community Edition) if you don't want to use the
 Install simply as a Debian package.
 
 # Installation
-## Install Node.js LTS
+## (Prerequisite) Install Node.js LTS
 ```
 DISTRO="$(lsb_release -s -c)"
 curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
