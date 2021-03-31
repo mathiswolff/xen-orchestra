@@ -1,5 +1,5 @@
-Allows you to use Xen Orchestra (Community Edition) if you don't want to use the Appliance or build from sources manually. 
-
+Allows you to use Xen Orchestra (Community Edition) if you don't want to use the Appliance or build from sources manually.  
+Install simply as a Debian package.
 
 # Installation
 ## Install Node.js LTS
