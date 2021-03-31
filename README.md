@@ -17,3 +17,6 @@ echo "deb http://deb.wolff.tel/xo $DISTRO main" | sudo tee /etc/apt/sources.list
 sudo apt-get update
 sudo apt-get install redis-server xo-server
 ```
+
+Server will be listening on port 8080. You can login with user `admin@admin.net` and password `admin`.
+To configure a reverse proxy: https://vates.gitbooks.io/xen-orchestra/content/reverse_proxy.html
