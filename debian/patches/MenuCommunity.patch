@@ -1,0 +1,22 @@
+Index: b/packages/xo-web/src/xo-app/menu/index.js
+===================================================================
+--- a/packages/xo-web/src/xo-app/menu/index.js
++++ b/packages/xo-web/src/xo-app/menu/index.js
+@@ -77,7 +77,7 @@ const returnTrue = () => true
+ export default class Menu extends Component {
+   componentWillMount() {
+     const updateCollapsed = () => {
+-      this.setState({ collapsed: window.innerWidth < 1200 })
++      this.setState({ collapsed: true })
+     }
+     updateCollapsed()
+ 
+@@ -534,7 +534,7 @@ export default class Menu extends Compon
+             <span>
+               <a className={styles.brand} href='#'>
+                 <span className={styles.hiddenUncollapsed}>XO</span>
+-                <span className={styles.hiddenCollapsed}>Xen Orchestra</span>
++                <span className={styles.hiddenCollapsed}>XO Community</span>
+               </a>
+             </span>
+           </li>

@@ -1,0 +1,26 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	yarn --cache-folder .yarn-cache --disable-pnp
+	yarn --cache-folder .yarn-cache --disable-pnp run build
+	npm prune
+	yarn --cache-folder .yarn-cache --disable-pnp install --production
+	cp packages/xo-server/xo-server.service debian/xo-server.service
+
+override_dh_auto_install:
+	mkdir -p "$(CURDIR)/debian/xo-server/usr/bin" "$(CURDIR)/debian/xo-server/usr/lib/xo-server" "$(CURDIR)/debian/xo-server/etc/xo-server" "$(CURDIR)/debian/xo-server/etc/sudoers.d"
+	cp -dR --preserve=mode -t "$(CURDIR)/debian/xo-server/usr/lib/xo-server" "packages" "node_modules" "@vates" "@xen-orchestra"
+	install -m 0644 -T "packages/xo-server/sample.config.toml" "$(CURDIR)/debian/xo-server/etc/xo-server/config.toml"
+	install -m 0600 -T "debian/xo-server.sudo" "$(CURDIR)/debian/xo-server/etc/sudoers.d/xo-server"
+	rm "$(CURDIR)/debian/xo-server/usr/lib/xo-server/packages/xo-server/xo-server.service" "$(CURDIR)/debian/xo-server/usr/lib/xo-server/packages/xo-server/sample.config.toml"
+	rm -r "$(CURDIR)/debian/xo-server/usr/lib/xo-server/packages/xo-server-test" "$(CURDIR)/debian/xo-server/usr/lib/xo-server/packages/xo-server-test-plugin" "$(CURDIR)/debian/xo-server/usr/lib/xo-server/node_modules/xo-server-test" "$(CURDIR)/debian/xo-server/usr/lib/xo-server/node_modules/xo-server-test-plugin"
+	find "$(CURDIR)/debian/xo-server/usr/lib/xo-server/packages/" -mindepth 2 -maxdepth 2 -type d -iname 'src' -exec rm -r -- {} \;
+	ln -s ../lib/xo-server/packages/xo-server/dist/cli.mjs "$(CURDIR)/debian/xo-server/usr/bin/xo-server"
+	ln -s ../lib/xo-server/packages/xo-server/dist/logs-cli.mjs "$(CURDIR)/debian/xo-server/usr/bin/xo-server-logs"
+	ln -s ../lib/xo-server/packages/xo-server/dist/recover-account-cli.mjs "$(CURDIR)/debian/xo-server/usr/bin/xo-server-recover-account"
+
+override_dh_strip_nondeterminism:
+	# Disable dh_strip_nondeterminism to speed up the build

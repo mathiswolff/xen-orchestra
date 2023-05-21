@@ -1,0 +1,48 @@
+Index: b/packages/xo-server/sample.config.toml
+===================================================================
+--- a/packages/xo-server/sample.config.toml
++++ b/packages/xo-server/sample.config.toml
+@@ -91,7 +91,7 @@
+ # Port on which the server is listening on.
+ #
+ # Default: undefined
+-port = 80
++port = 8080
+ 
+ # Instead of `host` and `port` a path to a UNIX socket may be specified
+ # (overrides `host` and `port`).
+@@ -182,7 +182,7 @@ port = 80
+ # Use sudo for mount with non-root user
+ #
+ # Default: false
+-#useSudo = false
++useSudo = true
+ 
+ #=====================================================================
+ 
+Index: b/packages/xo-server/xo-server.service
+===================================================================
+--- a/packages/xo-server/xo-server.service
++++ b/packages/xo-server/xo-server.service
+@@ -1,14 +1,15 @@
+-# systemd service for XO-Server.
+-
+ [Unit]
+-Description= XO Server
+-After=network-online.target
++Description=XO Server
++After=network-online.target redis-server.service
+ 
+ [Service]
+-Environment="DEBUG=xo:main"
+-ExecStart=/usr/local/bin/xo-server
++User=xo-server
++WorkingDirectory=/var/lib/xo-server
++ExecStart=/usr/bin/xo-server
+ Restart=always
+ SyslogIdentifier=xo-server
++RuntimeDirectory=xo-server
++RuntimeDirectoryMode=0750
+ 
+ [Install]
+ WantedBy=multi-user.target

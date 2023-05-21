@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -e
+set -u
+
+daemon_home="/var/lib/xo-server"
+conffile="/etc/xo-server/config.toml"
+
+case "$1" in
+	purge)
+		if test -e "$daemon_home"; then
+			rm -r "$daemon_home" >/dev/null 2>&1 || exit 78
+		fi
+		dpkg-statoverride --remove "$conffile" || test $? -eq 2
+	;;
+esac
+
+#DEBHELPER#

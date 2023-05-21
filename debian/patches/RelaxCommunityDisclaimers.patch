@@ -1,0 +1,45 @@
+Index: b/packages/xo-web/src/xo-app/index.js
+===================================================================
+--- a/packages/xo-web/src/xo-app/index.js
++++ b/packages/xo-web/src/xo-app/index.js
+@@ -247,6 +247,7 @@ export default class XoApp extends Compo
+   }
+ 
+   displayOpenSourceDisclaimer() {
++    return
+     const previousDisclaimer = cookies.get('previousDisclaimer')
+     const now = Math.floor(Date.now() / 1e3)
+     const oneWeekAgo = now - 7 * 24 * 3600
+@@ -269,7 +270,7 @@ export default class XoApp extends Compo
+   }
+ 
+   dismissSourceBanner = () => {
+-    cookies.set('dismissedSourceBanner', true, { expires: 1 }) // 1 day
++    cookies.set('dismissedSourceBanner', true, { expires: 7 })
+     this.setState({ dismissedSourceBanner: true })
+   }
+ 
+@@ -368,18 +369,15 @@ export default class XoApp extends Compo
+               {plan === 'Community' && !this.state.dismissedSourceBanner && (
+                 <div className='alert alert-danger mb-0'>
+                   <a
+-                    href='https://xen-orchestra.com/#!/xoa?pk_campaign=xo_source_banner'
+-                    rel='noopener noreferrer'
+-                    target='_blank'
+-                  >
+-                    {_('disclaimerText3')}
+-                  </a>{' '}
+-                  <a
+                     href='https://xen-orchestra.com/docs/installation.html#banner-and-warnings'
+                     rel='noopener noreferrer'
+                     target='_blank'
+                   >
+-                    {_('disclaimerText4')}
++                    {_('disclaimerText1')}
++                  </a>
++		    {' '}{_('disclaimerText2')}{' '}
++                  <a href='https://xen-orchestra.com/#!/xoa?pk_campaign=xoa_source_upgrade&pk_kwd=ossmodal'>
++                    XOA (turnkey appliance)
+                   </a>
+                   <button className='close' onClick={this.dismissSourceBanner}>
+                     &times;
