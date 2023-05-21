@@ -16,7 +16,7 @@ sudo apt-get install nodejs
 ## Install Xen Orchestra
 Execute the following steps to install Xen Orchestra Community Edition:
 ```
-curl -fsSL https://deb.wolff.tel/apt.gpg | sudo apt-key add -
+curl -fsSL https://deb.wolff.tel/pubkey.gpg | sudo apt-key add -
 echo "deb http://deb.wolff.tel/xo $(lsb_release -s -c) main" | sudo tee /etc/apt/sources.list.d/xen-orchestra.list
 sudo apt-get update
 sudo apt-get install redis-server xo-server
