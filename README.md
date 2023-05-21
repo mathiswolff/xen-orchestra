@@ -1,6 +1,6 @@
 # Debian packages for Xen Orchestra
 Allows you to use Xen Orchestra (Community Edition) if you don't want to use the Appliance or build from sources manually.
-Using the repository no compiling is needed, so even a VM with 2 GB will be sufficent for operation. Simply install a Debian package.
+Using the repository no compiling is needed, so even a VM with 2 GB RAM will be sufficent for operation. Simply install a Debian package.
 
 # Installation
 ## (Prerequisite) Install Node.js LTS
