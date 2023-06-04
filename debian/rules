@@ -6,7 +6,6 @@
 override_dh_auto_build:
 	yarn --cache-folder .yarn-cache --disable-pnp
 	yarn --cache-folder .yarn-cache --disable-pnp run build
-	npm prune
 	yarn --cache-folder .yarn-cache --disable-pnp install --production
 	cp packages/xo-server/xo-server.service debian/xo-server.service
 
