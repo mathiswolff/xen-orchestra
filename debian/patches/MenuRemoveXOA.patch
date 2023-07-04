@@ -64,7 +64,7 @@ Index: b/packages/xo-web/src/xo-app/home/host-item.js
 ===================================================================
 --- a/packages/xo-web/src/xo-app/home/host-item.js
 +++ b/packages/xo-web/src/xo-app/home/host-item.js
-@@ -167,16 +167,6 @@ export default class HostItem extends Co
+@@ -180,16 +180,6 @@ export default class HostItem extends Co
        }
  
        const proSupportStatus = this._getProSupportStatus()
@@ -81,7 +81,7 @@ Index: b/packages/xo-web/src/xo-app/home/host-item.js
  
        if (!host.hvmCapable) {
          alerts.push({
-@@ -230,9 +220,6 @@ export default class HostItem extends Co
+@@ -243,9 +233,6 @@ export default class HostItem extends Co
                  &nbsp;
                  <BulkIcons alerts={this._getAlerts()} />
                  &nbsp;
@@ -95,24 +95,12 @@ Index: b/packages/xo-web/src/xo-app/home/pool-item.js
 ===================================================================
 --- a/packages/xo-web/src/xo-app/home/pool-item.js
 +++ b/packages/xo-web/src/xo-app/home/pool-item.js
-@@ -107,20 +107,6 @@ export default class PoolItem extends Co
+@@ -107,7 +107,7 @@ export default class PoolItem extends Co
      (isAdmin, poolLicenseInfo) => {
        const alerts = []
  
 -      if (isAdmin && this._isXcpngPool()) {
--        const { icon, supportLevel } = poolLicenseInfo
--        if (supportLevel !== 'total') {
--          const level = supportLevel === 'partial' || getXoaPlan() === SOURCES ? 'warning' : 'danger'
--          alerts.push({
--            level,
--            render: (
--              <p>
--                {icon()} {this._getPoolLicenseIconTooltip()}
--              </p>
--            ),
--          })
--        }
--      }
-       return alerts
-     }
-   )
++      if (0) {
+         const { icon, supportLevel } = poolLicenseInfo
+         if (supportLevel !== 'total') {
+           alerts.push({
