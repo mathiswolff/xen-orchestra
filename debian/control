@@ -8,6 +8,6 @@ Homepage: https://github.com/mathiswolff/xen-orchestra
 
 Package: xo-server
 Architecture: all
-Depends: nodejs (>= 18.15)
+Depends: nodejs (>= 18.17)
 Recommends: redis-server, sudo, nfs-common, libvhdi-utils
 Description: Xen Orchestra Community Edition
