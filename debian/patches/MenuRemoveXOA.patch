@@ -33,12 +33,12 @@ Index: b/packages/xo-web/src/xo-app/menu/index.js
          label: 'taskMenu',
          pill: nResolvedTasks,
        },
--      isAdmin && { to: '/xosan', icon: 'menu-xosan', label: 'xosan' },
-+      isAdmin && +process.env.XOA_PLAN <= 4 && { to: '/xosan', icon: 'menu-xosan', label: 'xosan' },
-       !noOperatablePools && {
-         to: '/import/vm',
-         icon: 'menu-new-import',
-@@ -558,7 +558,7 @@ export default class Menu extends Compon
+-      isAdmin && {
++      isAdmin && +process.env.XOA_PLAN <= 4 && {
+         to: '/xostor',
+         label: 'xostor',
+         icon: 'menu-xostor',
+@@ -562,7 +562,7 @@ export default class Menu extends Compon
                </Link>
              </li>
            )}
