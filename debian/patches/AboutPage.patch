@@ -1,0 +1,83 @@
+Index: b/packages/xo-web/src/xo-app/about/index.js
+===================================================================
+--- a/packages/xo-web/src/xo-app/about/index.js
++++ b/packages/xo-web/src/xo-app/about/index.js
+@@ -79,53 +79,32 @@ export default class About extends Compo
+         <Container className='text-xs-center'>
+           {isAdmin && [
+             process.env.XOA_PLAN > 4 && COMMIT_ID !== '' && (
+-              <Col>
+-                <Row key='0'>
+-                  <Col mediumSize={6}>
+-                    <Icon icon='git' size={4} />
+-                    <h4>
+-                      Xen Orchestra, commit{' '}
+-                      <a href={'https://github.com/vatesfr/xen-orchestra/commit/' + COMMIT_ID}>
+-                        {COMMIT_ID.slice(0, 5)}
+-                      </a>
+-                    </h4>
+-                  </Col>
+-                  <Col mediumSize={6} className={commit?.fetched === false ? 'text-warning' : ''}>
+-                    <Icon icon='git' size={4} />
+-                    <h4>
+-                      {commit === undefined ? (
+-                        _('statusLoading')
+-                      ) : commit.fetched ? (
+-                        <span>
+-                          Master, commit <a href={commit.master.html_url}>{commit.master.sha.slice(0, 5)}</a>
+-                        </span>
+-                      ) : (
+-                        _('failedToFetchLatestMasterCommit')
+-                      )}
+-                    </h4>
+-                  </Col>
+-                </Row>
+-                {commit?.fetched && (
+-                  <Row className={`mt-1 ${commit.isOnLatest ? '' : 'text-warning '}`}>
+-                    <h4>
+-                      {commit.isOnLatest ? (
+-                        <span>
+-                          {_('xoUpToDate')} <Icon icon='check' color='text-success' />
+-                        </span>
+-                      ) : (
+-                        <span>
+-                          {_('xoFromSourceNotUpToDate', {
+-                            nBehind: commit.diffWithMaster.nBehind,
+-                            nAhead: commit.diffWithMaster.nAhead,
+-                          })}{' '}
+-                          <Icon icon='alarm' color='text-warning' />
+-                        </span>
+-                      )}
+-                    </h4>
+-                  </Row>
+-                )}
+-              </Col>
++              <Row key='0'>
++                <Col>
++                  <Icon icon='git' size={4} />
++                  <h4>
++                    Xen Orchestra, commit{' '}
++                    <a href={'https://github.com/vatesfr/xen-orchestra/commit/' + COMMIT_ID}>{COMMIT_ID.slice(0, 5)}</a>
++                  </h4>
++                </Col>
++              </Row>
+             ),
++            <Row key='1'>
++              <Col mediumSize={6}>
++                <Icon icon='host' size={4} />
++                <Copiable tagName='h4' data={`xo-server ${this.state.serverVersion}`}>
++                  xo-server {this.state.serverVersion || 'unknown'}
++                </Copiable>
++                <p className='text-muted'>{_('xenOrchestraServer')}</p>
++              </Col>
++              <Col mediumSize={6}>
++                <Icon icon='vm' size={4} />
++                <Copiable tagName='h4' data={`xo-web ${pkg.version}`}>
++                  xo-web {pkg.version}
++                </Copiable>
++                <p className='text-muted'>{_('xenOrchestraWeb')}</p>
++              </Col>
++            </Row>,
+           ]}
+           {process.env.XOA_PLAN > 4 ? (
+             <div>

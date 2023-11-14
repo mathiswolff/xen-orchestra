@@ -2,7 +2,7 @@ Index: b/packages/xo-server/src/index.mjs
 ===================================================================
 --- a/packages/xo-server/src/index.mjs
 +++ b/packages/xo-server/src/index.mjs
-@@ -377,7 +377,7 @@ async function registerPluginsInPath(pat
+@@ -392,7 +392,7 @@ async function registerPluginsInPath(pat
  
  async function registerPlugins(xo) {
    await Promise.all(

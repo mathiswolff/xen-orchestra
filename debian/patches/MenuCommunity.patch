@@ -11,7 +11,7 @@ Index: b/packages/xo-web/src/xo-app/menu/index.js
      }
      updateCollapsed()
  
-@@ -534,7 +534,7 @@ export default class Menu extends Compon
+@@ -538,7 +538,7 @@ export default class Menu extends Compon
              <span>
                <a className={styles.brand} href='#'>
                  <span className={styles.hiddenUncollapsed}>XO</span>
