@@ -2,7 +2,7 @@ Index: b/packages/xo-web/src/xo-app/index.js
 ===================================================================
 --- a/packages/xo-web/src/xo-app/index.js
 +++ b/packages/xo-web/src/xo-app/index.js
-@@ -280,9 +280,6 @@ export default class XoApp extends Compo
+@@ -284,9 +284,6 @@ export default class XoApp extends Compo
  
    componentDidMount() {
      this.refs.bodyWrapper.style.minHeight = this.refs.menu.getWrappedInstance().height + 'px'
@@ -11,8 +11,8 @@ Index: b/packages/xo-web/src/xo-app/index.js
 -    }
    }
  
-   _shortcutsHandler = (command, event) => {
-@@ -365,27 +362,6 @@ export default class XoApp extends Compo
+   componentDidUpdate(prev) {
+@@ -375,27 +372,6 @@ export default class XoApp extends Compo
                    <Link to='/xoa/update'>{_('notRegisteredDisclaimerRegister')}</Link>
                  </div>
                )}
