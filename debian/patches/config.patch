@@ -2,7 +2,7 @@ Index: b/packages/xo-server/sample.config.toml
 ===================================================================
 --- a/packages/xo-server/sample.config.toml
 +++ b/packages/xo-server/sample.config.toml
-@@ -91,7 +91,7 @@
+@@ -105,7 +105,7 @@
  # Port on which the server is listening on.
  #
  # Default: undefined
@@ -11,7 +11,7 @@ Index: b/packages/xo-server/sample.config.toml
  
  # Instead of `host` and `port` a path to a UNIX socket may be specified
  # (overrides `host` and `port`).
-@@ -182,7 +182,7 @@ port = 80
+@@ -196,7 +196,7 @@ port = 80
  # Use sudo for mount with non-root user
  #
  # Default: false
@@ -46,3 +46,16 @@ Index: b/packages/xo-server/xo-server.service
  
  [Install]
  WantedBy=multi-user.target
+Index: b/packages/xo-server/config.toml
+===================================================================
+--- a/packages/xo-server/config.toml
++++ b/packages/xo-server/config.toml
+@@ -156,7 +156,7 @@ level = 'info'
+ [logs.transport.console]
+ 
+ [plugins]
+-lookupPaths = ['./node_modules', '../', '/usr/local/lib/node_modules']
++lookupPaths = ['./node_modules', '../', '/usr/lib/xo-server/node_modules', '/usr/local/lib/node_modules']
+ 
+ [remoteOptions]
+ mountsDir = '/run/xo-server/mounts'

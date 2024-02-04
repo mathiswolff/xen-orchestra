@@ -2,7 +2,7 @@ Index: b/packages/xo-server/src/xo-mixins/file-restore-ng.mjs
 ===================================================================
 --- a/packages/xo-server/src/xo-mixins/file-restore-ng.mjs
 +++ b/packages/xo-server/src/xo-mixins/file-restore-ng.mjs
-@@ -27,10 +27,12 @@ export default class BackupNgFileRestore
+@@ -36,10 +36,12 @@ export default class BackupNgFileRestore
  
      // clean any LVM volumes that might have not been properly
      // unmounted
@@ -12,6 +12,6 @@ Index: b/packages/xo-server/src/xo-mixins/file-restore-ng.mjs
        await execa('pvscan', ['--cache'])
      })
 +    */
-   }
  
-   async fetchBackupNgPartitionFiles(remoteId, diskId, partitionId, paths, format) {
+     app.hooks.on('stop', () =>
+       asyncEach(

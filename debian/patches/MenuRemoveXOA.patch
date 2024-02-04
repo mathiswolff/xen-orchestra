@@ -2,7 +2,7 @@ Index: b/packages/xo-web/src/xo-app/menu/index.js
 ===================================================================
 --- a/packages/xo-web/src/xo-app/menu/index.js
 +++ b/packages/xo-web/src/xo-app/menu/index.js
-@@ -328,7 +328,7 @@ export default class Menu extends Compon
+@@ -332,7 +332,7 @@ export default class Menu extends Compon
            },
          ],
        },
@@ -11,7 +11,7 @@ Index: b/packages/xo-web/src/xo-app/menu/index.js
          to: isAdmin ? 'xoa/update' : 'xoa/notifications',
          icon: 'menu-xoa',
          label: 'xoa',
-@@ -437,7 +437,7 @@ export default class Menu extends Compon
+@@ -441,7 +441,7 @@ export default class Menu extends Compon
            },
          ],
        },
@@ -20,7 +20,7 @@ Index: b/packages/xo-web/src/xo-app/menu/index.js
          to: '/hub/templates',
          icon: 'menu-hub',
          label: 'hubPage',
-@@ -454,7 +454,7 @@ export default class Menu extends Compon
+@@ -458,7 +458,7 @@ export default class Menu extends Compon
            },
          ],
        },
@@ -29,7 +29,7 @@ Index: b/packages/xo-web/src/xo-app/menu/index.js
          to: '/proxies',
          icon: 'proxy',
          label: 'proxies',
-@@ -478,7 +478,7 @@ export default class Menu extends Compon
+@@ -486,7 +486,7 @@ export default class Menu extends Compon
          label: 'taskMenu',
          pill: nResolvedTasks,
        },
@@ -38,7 +38,7 @@ Index: b/packages/xo-web/src/xo-app/menu/index.js
          to: '/xostor',
          label: 'xostor',
          icon: 'menu-xostor',
-@@ -562,7 +562,7 @@ export default class Menu extends Compon
+@@ -570,7 +570,7 @@ export default class Menu extends Compon
                </Link>
              </li>
            )}
@@ -51,7 +51,7 @@ Index: b/packages/xo-web/src/xo-app/index.js
 ===================================================================
 --- a/packages/xo-web/src/xo-app/index.js
 +++ b/packages/xo-web/src/xo-app/index.js
-@@ -187,7 +187,7 @@ export const ICON_POOL_LICENSE = {
+@@ -189,7 +189,7 @@ export const ICON_POOL_LICENSE = {
          if (getXoaPlan() === SOURCES.name) {
            poolLicenseInfoByPoolId[poolId] = {
              nHostsUnderLicense,
@@ -64,7 +64,7 @@ Index: b/packages/xo-web/src/xo-app/home/host-item.js
 ===================================================================
 --- a/packages/xo-web/src/xo-app/home/host-item.js
 +++ b/packages/xo-web/src/xo-app/home/host-item.js
-@@ -180,16 +180,6 @@ export default class HostItem extends Co
+@@ -184,16 +184,6 @@ export default class HostItem extends Co
        }
  
        const proSupportStatus = this._getProSupportStatus()
@@ -81,7 +81,7 @@ Index: b/packages/xo-web/src/xo-app/home/host-item.js
  
        if (!host.hvmCapable) {
          alerts.push({
-@@ -243,9 +233,6 @@ export default class HostItem extends Co
+@@ -266,9 +256,6 @@ export default class HostItem extends Co
                  &nbsp;
                  <BulkIcons alerts={this._getAlerts()} />
                  &nbsp;
@@ -95,8 +95,8 @@ Index: b/packages/xo-web/src/xo-app/home/pool-item.js
 ===================================================================
 --- a/packages/xo-web/src/xo-app/home/pool-item.js
 +++ b/packages/xo-web/src/xo-app/home/pool-item.js
-@@ -107,7 +107,7 @@ export default class PoolItem extends Co
-     (isAdmin, poolLicenseInfo) => {
+@@ -113,7 +113,7 @@ export default class PoolItem extends Co
+     (isAdmin, poolLicenseInfo, areHostsVersionsEqual, hosts, poolId) => {
        const alerts = []
  
 -      if (isAdmin && this._isXcpngPool()) {

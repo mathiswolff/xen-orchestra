@@ -2,7 +2,7 @@ Index: b/packages/xo-web/src/xo-app/index.js
 ===================================================================
 --- a/packages/xo-web/src/xo-app/index.js
 +++ b/packages/xo-web/src/xo-app/index.js
-@@ -247,6 +247,7 @@ export default class XoApp extends Compo
+@@ -251,6 +251,7 @@ export default class XoApp extends Compo
    }
  
    displayOpenSourceDisclaimer() {
@@ -10,7 +10,7 @@ Index: b/packages/xo-web/src/xo-app/index.js
      const previousDisclaimer = cookies.get('previousDisclaimer')
      const now = Math.floor(Date.now() / 1e3)
      const oneWeekAgo = now - 7 * 24 * 3600
-@@ -269,7 +270,7 @@ export default class XoApp extends Compo
+@@ -273,7 +274,7 @@ export default class XoApp extends Compo
    }
  
    dismissSourceBanner = () => {
@@ -19,7 +19,7 @@ Index: b/packages/xo-web/src/xo-app/index.js
      this.setState({ dismissedSourceBanner: true })
    }
  
-@@ -368,18 +369,15 @@ export default class XoApp extends Compo
+@@ -378,18 +379,15 @@ export default class XoApp extends Compo
                {plan === 'Community' && !this.state.dismissedSourceBanner && (
                  <div className='alert alert-danger mb-0'>
                    <a
