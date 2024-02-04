@@ -1,0 +1,15 @@
+Index: b/packages/xo-web/src/xo-app/about/index.js
+===================================================================
+--- a/packages/xo-web/src/xo-app/about/index.js
++++ b/packages/xo-web/src/xo-app/about/index.js
+@@ -34,8 +34,8 @@ export default class About extends Compo
+ 
+     if (process.env.XOA_PLAN > 4 && COMMIT_ID !== '') {
+       try {
+-        const commit = await getMasterCommit()
+-        const isOnLatest = commit.sha === COMMIT_ID
++        const commit = COMMIT_ID
++        const isOnLatest = true
+         const diff = {
+           nAhead: 0,
+           nBehind: 0,
