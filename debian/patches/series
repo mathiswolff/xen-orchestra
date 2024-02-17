@@ -1,6 +1,5 @@
 MenuRemoveXOA.patch
 MenuCommunity.patch
-RemoveCommitCheck.patch
 DisableLVM.patch
 config.patch
 RelaxCommunityDisclaimers.patch
